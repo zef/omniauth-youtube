@@ -1,5 +1,5 @@
 module OmniAuth
-  module SoundCloud
+  module YouTube
     VERSION = "1.0.0"
   end
 end

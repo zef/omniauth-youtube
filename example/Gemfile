@@ -1,4 +1,4 @@
 source :rubygems
 
 gem 'sinatra'
-gem 'omniauth-soundcloud', :path => '../'
+gem 'omniauth-youtube'

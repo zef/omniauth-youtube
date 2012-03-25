@@ -1,10 +1,10 @@
 require 'bundler/setup'
 require 'sinatra/base'
-require 'omniauth-soundcloud'
+require 'omniauth-youtube'
 
 class App < Sinatra::Base
   get '/' do
-    redirect '/auth/soundcloud'
+    redirect '/auth/youtube'
   end
 
   get '/auth/:provider/callback' do
@@ -21,7 +21,7 @@ end
 use Rack::Session::Cookie
 
 use OmniAuth::Builder do
-  provider :soundcloud, ENV['APP_ID'], ENV['APP_SECRET'], :scope => 'non-expiring'
+  provider :youtube, ENV['APP_ID'], ENV['APP_SECRET']
 end
 
 run App.new

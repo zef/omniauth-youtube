@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path('../lib', __FILE__)
-require 'omniauth/soundcloud/version'
+require 'omniauth/youtube/version'
 
 Gem::Specification.new do |s|
-  s.name     = 'omniauth-soundcloud'
-  s.version  = OmniAuth::SoundCloud::VERSION
+  s.name     = 'omniauth-youtube'
+  s.version  = OmniAuth::YouTube::VERSION
   s.authors  = ['Lee Martin']
-  s.email    = ['lee@soundcloud.com']
-  s.summary  = 'SoundCloud strategy for OmniAuth'
-  s.homepage = 'https://github.com/soundcloud/omniauth-soundcloud'
+  s.email    = ['leepaulmartin@gmail.com']
+  s.summary  = 'YouTube strategy for OmniAuth'
+  s.homepage = 'https://github.com/leemartin/omniauth-youtube'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

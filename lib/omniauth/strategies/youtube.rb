@@ -16,12 +16,12 @@ module OmniAuth
       
       info do
         prune!({
-          nickname: raw_info['author'].first['name']['$t'],
-          first_name: raw_info['yt$firstName']['$t'],
-          last_name: raw_info['yt$lastName']['$t'],
-          image: raw_info['media$thumbnail']['url'],
-          description: raw_info['yt$description']['$t'],
-          location: raw_info['yt$location']['$t']
+          nickname:    value_for_key_path('yt$username', '$t'),
+          first_name:  value_for_key_path('yt$firstName', '$t'),
+          last_name:   value_for_key_path('yt$lastName', '$t'),
+          image:       value_for_key_path('media$thumbnail', 'url'),
+          description: value_for_key_path('yt$description', '$t'),
+          location:    value_for_key_path('yt$location', '$t')
         })
       end
       
@@ -50,6 +50,16 @@ module OmniAuth
           prune!(value) if value.is_a?(Hash)
           value.nil? || (value.respond_to?(:empty?) && value.empty?)
         end
+      end
+
+      # not all keys are returned by youtube API
+      def value_for_key_path(*args)
+        value = raw_info
+        args.each do |a|
+          value = value[a]
+          break if value.nil?
+        end
+        value
       end
     end
   end

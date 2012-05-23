@@ -32,7 +32,6 @@ module OmniAuth
       end
       
       def raw_info
-        debugger
         @raw_info ||= access_token.get('/feeds/api/users/default?alt=json&v=2.1').parsed['entry']
       end
 

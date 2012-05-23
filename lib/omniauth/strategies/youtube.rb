@@ -32,7 +32,7 @@ module OmniAuth
       end
       
       def raw_info
-        @raw_info ||= access_token.get('/feeds/api/users/default?alt=json').parsed['entry']
+        @raw_info ||= access_token.get('/feeds/api/users/default?alt=json&v=2.1').parsed['entry']
       end
 
       def authorize_params
